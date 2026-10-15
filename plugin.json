@@ -1,0 +1,106 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "artificial-analysis",
+  "version": "1.0.0",
+  "description": "Independent benchmarks for models and API providers: intelligence, price, speed and latency for language models, plus arena rankings for image, video, speech and music models.",
+  "author": {
+    "name": "Artificial Analysis",
+    "email": "support@artificialanalysis.ai",
+    "url": "https://artificialanalysis.ai"
+  },
+  "homepage": "https://artificialanalysis.ai",
+  "repository": "https://github.com/ArtificialAnalysis/artificial-analysis-plugin",
+  "keywords": [
+    "ai",
+    "benchmarks",
+    "llm",
+    "models",
+    "pricing",
+    "latency",
+    "leaderboard"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Artificial Analysis",
+        "shortDescription": "Independent AI benchmarks",
+        "longDescription": "Artificial Analysis independently benchmarks models and the API providers that serve them. Connect it to answer questions with current measurements instead of what a model remembers from training.\n\nLanguage models: the Artificial Analysis Intelligence Index and its evaluations, coding and agentic indexes, context window, price per million tokens, and output speed and time to first token measured across providers.\n\nAPI providers: compare how each provider serves a model on speed, latency and price, with performance over time.\n\nMedia models: arena rankings for text-to-image, image editing, text-to-video, image-to-video, text-to-speech, speech-to-text, speech-to-speech and music.\n\nEvery tool is read-only. Sign in with your Artificial Analysis account and choose an organization. Calls count against that organization's API quota, and the data you see follows its plan.",
+        "developerName": "Artificial Analysis",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Compare language models on intelligence, price and speed",
+          "Compare API providers serving the same model",
+          "Rank image, video, speech and music models",
+          "Explain any benchmark field and how it is measured"
+        ],
+        "websiteURL": "https://artificialanalysis.ai",
+        "supportURL": "https://artificialanalysis.ai/contact",
+        "privacyPolicyURL": "https://artificialanalysis.ai/privacy-policy",
+        "termsOfServiceURL": "https://artificialanalysis.ai/terms-of-use",
+        "defaultPrompt": [
+          "Which language models lead the Artificial Analysis Intelligence Index right now?",
+          "Which of the top ten models on the Intelligence Index has the fastest median output speed?",
+          "What are the top text-to-video models on the Artificial Analysis Video Arena?"
+        ],
+        "brandColor": "#8842FD",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Rank language models by intelligence",
+              "prompt": "Which five language models have the highest Artificial Analysis Intelligence Index?",
+              "tools_triggered": "aa_language_models_free",
+              "expected_behavior": "Calls /language/models/free and lists five models with their index scores and the index version from the response."
+            },
+            {
+              "description": "Filter models by price and score",
+              "prompt": "Which models score above 50 on the Intelligence Index and cost under $1 per million input tokens?",
+              "tools_triggered": "aa_language_models_free",
+              "expected_behavior": "Reads model scores and price_1m_input_tokens from /language/models/free and returns only the models meeting both limits, or says none do."
+            },
+            {
+              "description": "Compare models on speed",
+              "prompt": "Which of the top ten models on the Intelligence Index has the fastest median output speed, and what is its time to first token?",
+              "tools_triggered": "aa_language_models_free",
+              "expected_behavior": "Reads index scores and median performance from /language/models/free, ranks the top ten by index, and names the fastest by output speed with its time to first token."
+            },
+            {
+              "description": "Rank media models",
+              "prompt": "What are the top five text-to-video models on the Artificial Analysis Video Arena?",
+              "tools_triggered": "aa_media_rankings_free",
+              "expected_behavior": "Calls aa_media_rankings_free with modality text-to-video and lists the five highest-rated models with their arena ratings."
+            },
+            {
+              "description": "Explain a metric",
+              "prompt": "In Artificial Analysis data, what does time to first token measure, and can it be missing?",
+              "tools_triggered": "aa_describe_fields",
+              "expected_behavior": "Describes the field's meaning, type and nullability from the live API contract without inventing a definition."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Media generation is out of scope",
+              "prompt": "Generate an image of a lighthouse at sunset."
+            },
+            {
+              "description": "Account changes are out of scope",
+              "prompt": "Upgrade my Artificial Analysis plan and add a teammate to my organization."
+            },
+            {
+              "description": "Unrelated question",
+              "prompt": "What's the weather in London tomorrow?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin reads benchmark data. It does not sell products, process payments or change subscriptions."
+      },
+      "publication": {
+        "release_notes": "Initial release: read-only access to Artificial Analysis language, provider and media benchmarks."
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "artificial-analysis",
+  "displayName": "Artificial Analysis",
+  "version": "1.0.0",
+  "description": "Independent benchmarks for models and API providers: intelligence, price, speed and latency for language models, plus arena rankings for image, video, speech and music models.",
+  "author": {
+    "name": "Artificial Analysis",
+    "email": "support@artificialanalysis.ai"
+  },
+  "homepage": "https://artificialanalysis.ai",
+  "repository": "https://github.com/ArtificialAnalysis/artificial-analysis-plugin",
+  "license": "MIT",
+  "keywords": ["ai", "benchmarks", "llm", "models", "pricing", "latency", "leaderboard"],
+  "logo": "assets/logo.svg",
+  "category": "integrations",
+  "mcpServers": "./mcp.json"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "artificial-analysis",
+  "version": "1.0.0",
+  "description": "Independent benchmarks for models and API providers: intelligence, price, speed and latency, plus arena rankings for image, video, speech and music models.",
+  "mcpServers": {
+    "artificial-analysis": {
+      "httpUrl": "https://mcp.artificialanalysis.ai/mcp"
+    }
+  }
+}

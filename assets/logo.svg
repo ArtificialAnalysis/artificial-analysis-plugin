@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Artificial Analysis</title>
+  <rect width="512" height="512" fill="#8842FD"/>
+  <g fill="#FFFFFF" transform="translate(122.880 122.880) scale(5.04051)">
+    <path d="M46.2194 52.8204H52.8194V39.6104H46.2194H39.6094V52.8204H46.2194Z"/>
+    <path d="M26.41 0L13.2 13.2H0V26.41H19.81L33.01 13.2H39.61V0H26.41Z"/>
+    <path d="M26.41 26.4102L13.2 39.6102H0V52.8202H19.81L33.01 39.6102H39.61V26.4102H26.41Z"/>
+    <path d="M52.8194 26.4102V13.2002H46.2194H39.6094V26.4102H46.2194H52.8194Z"/>
+  </g>
+</svg>
